@@ -1,1 +1,70 @@
+<html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neoweb - Home</title>
+    <meta content="My Awsome description to my awesome website!" name="description">
+    <link rel="icon" type="image/png" href="images/icon.png"> 
+    <link rel="stylesheet" href="Neo.css">
+    <link rel="stylesheet" href="chat.css">
+</head>
+<body>
+    <div>
+    <h1>NEOWEB - BETA</h1>
+    <p>A place to hangout</p>
+    <br>
+    <p>Links</p>
+    <marquee behavior="alternate " onmouseover="this.stop();" onmouseout="this.start();" style="">
+    
+    </marquee>
+      <footer>
+        <a href="testers.html">Testers</a>
+      </footer>
+    </div>
 
+  <div class="chat-window">
+      <div class="chat-header">Chat Room</div>
+      <div class="chat-body" id="chat-body"></div>
+      <div class="chat-input">
+          <select id="sender">
+            <option value="User 1">User 1</option>
+            <option value="User 2">User 2</option>
+          </select>
+        <input type="text" id="chat-message" placeholder="Type a message...">
+        <button id="send-button">Send</button>
+      </div>
+      <script>
+      // by chatgpt:
+      // Wait for DOM to load before accessing elements
+window.addEventListener("DOMContentLoaded", () => {
+    const input = document.getElementById("chat-message");     // your input box
+    const button = document.getElementById("send-button");     // your send button
+    const chatBody = document.getElementById("chat-body");     // the container for messages
+
+    // Click event
+    button.addEventListener("click", sendMessage);
+
+    // Enter key event
+    input.addEventListener("keypress", function (e) {
+        if (e.key === "Enter") sendMessage();
+    });
+
+    function sendMessage() {
+        const message = input.value.trim();
+        if (message === "") return;
+
+        const msg = document.createElement("div");
+        msg.className = "message"; // use your own CSS here
+        msg.textContent = message;
+
+        chatBody.appendChild(msg);
+        chatBody.scrollTop = chatBody.scrollHeight;
+
+        input.value = "";
+    }
+});
+
+      </script>
+  </div>
+
+
+</body></html>
